@@ -1,9 +1,22 @@
 @import 'tailwindcss';
+@plugin "daisyui";
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-poppins: 'Poppins', sans-serif;
+    --font-karma: 'Karma', sans-serif;
+}
+
+body {
+    @apply min-h-screen bg-[#F2F4F7] font-poppins text-gray-800;
+}
+
+.section-title {
+    @apply text-lg font-semibold;
+}
+
+section {
+    @apply bg-white px-20 py-5;
 }

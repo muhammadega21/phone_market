@@ -1,9 +1,20 @@
 import BaseLayout from '@/layouts/base-layout';
+import { Banner as BannerType, Category } from '@/types';
+import Banner from './sections/banner';
+import Categories from './sections/categories';
 
-const Home = () => {
+interface HomeProps {
+    banners: BannerType[];
+    categories: Category[];
+}
+
+const Home = ({ banners, categories }: HomeProps) => {
     return (
         <BaseLayout>
-            <h1>Hello World</h1>
+            <div className="">
+                <Banner banners={banners} />
+                <Categories categories={categories} />
+            </div>
         </BaseLayout>
     );
 };

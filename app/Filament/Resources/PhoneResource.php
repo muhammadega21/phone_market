@@ -40,7 +40,8 @@ class PhoneResource extends Resource
                             ->maxLength(255),
                         FileUpload::make('thumbnail')
                             ->image()
-                            ->required(),
+                            ->required()
+                            ->directory('phones'),
                         TextInput::make('price')
                             ->required()
                             ->numeric()

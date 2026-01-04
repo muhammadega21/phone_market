@@ -190,6 +190,7 @@ class OrderResource extends Resource
                                     FileUpload::make('payment_proof')
                                         ->required()
                                         ->image()
+                                        ->directory('orders')
 
                                 ])
                         ])
