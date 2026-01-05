@@ -73,6 +73,7 @@ class PhoneResource extends Resource
                                 FileUpload::make('photo')
                                     ->image()
                                     ->required()
+                                    ->directory('phones')
                             ]),
 
                         Textarea::make('description')

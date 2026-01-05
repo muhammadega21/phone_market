@@ -1,3 +1,5 @@
+import login from '@/routes/login';
+import register from '@/routes/register';
 import { Link } from '@inertiajs/react';
 import { ShoppingCart } from 'lucide-react';
 
@@ -23,8 +25,12 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="flex gap-x-2">
-                    <Link className="btn btn-outline btn-primary">Masuk</Link>
-                    <Link className="btn btn-primary">Daftar</Link>
+                    <Link href={login.index().url} className="btn btn-outline btn-primary">
+                        Masuk
+                    </Link>
+                    <Link href={register.index().url} className="btn btn-primary">
+                        Daftar
+                    </Link>
                 </div>
             </div>
         </div>

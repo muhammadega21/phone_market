@@ -28,6 +28,15 @@ class Phone extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
+    public function scopePopular($query)
+    {
+        return $query
+            // ->whereHas('reviews')
+            ->withCount('reviews')
+            ->withAvg('reviews', 'rating')
+            ->orderByDesc('reviews_count');
+    }
+
     public function specifications()
     {
         return $this->hasMany(PhoneSpecification::class);
@@ -38,7 +47,7 @@ class Phone extends Model
         return $this->hasMany(PhonePhoto::class);
     }
 
-    public function review()
+    public function reviews()
     {
         return $this->hasMany(PhoneReview::class);
     }

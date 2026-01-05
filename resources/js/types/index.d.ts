@@ -32,3 +32,30 @@ export interface Category {
     name: string;
     slug: string;
 }
+
+export interface Brand {
+    id: number;
+    logo: string;
+    name: string;
+    slug: string;
+}
+
+export interface Specification {
+    id: number;
+    name: string;
+    value: string;
+}
+
+export interface Phone {
+    id: number;
+    name: string;
+    slug: string;
+    thumbnail: string;
+    description: string;
+    price: number;
+    stock: number;
+    is_featured: boolean;
+    category: Category;
+    brand: Brand;
+    specifications: Specification[];
+}

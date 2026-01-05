@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\Category;
+use App\Models\Phone;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -20,10 +21,14 @@ class HomeController extends Controller
         });;
 
         $categories = Category::get();
+        $featuredPhones = Phone::with(['category', 'brand', 'specifications'])->where('is_featured', true)->take(6)->get();
+        $popularPhones = Phone::with(['category', 'brand', 'specifications', 'reviews'])->popular()->take(6)->get();
 
         return Inertia::render('home/index', [
             'banners' => $banners,
-            'categories' => $categories
+            'categories' => $categories,
+            'featuredPhones' => $featuredPhones,
+            'popularPhones' => $popularPhones
         ]);
     }
 }

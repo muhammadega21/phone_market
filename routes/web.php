@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PhoneController;
 use Illuminate\Support\Facades\Route;
@@ -7,8 +8,13 @@ use Inertia\Inertia;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/phones/{id}', [PhoneController::class, 'index'])->name('phones.show');
+Route::get('/login', [AuthController::class, 'login'])->name('login.index');
+Route::get('/register', [AuthController::class, 'register'])->name('register.index');
 
-Route::get('/brands/{id}', [PhoneController::class, 'index'])->name('brands.show');
+Route::get('/phones', [PhoneController::class, 'index'])->name('phones.index');
+Route::get('/phones/{brand}', [PhoneController::class, 'show'])->name('phones.show');
+Route::get('/phones/{slug}', [PhoneController::class, 'detail'])->name('phones.detail');
 
-Route::get('/categories/{id}', [PhoneController::class, 'index'])->name('categories.show');
+Route::get('/brands/{slug}', [PhoneController::class, 'show'])->name('brands.show');
+
+Route::get('/categories/{slug}', [PhoneController::class, 'show'])->name('categories.show');

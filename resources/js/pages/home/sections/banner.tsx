@@ -1,3 +1,4 @@
+import { STORAGE_URL } from '@/config/env';
 import { Banner as BannerType } from '@/types';
 import { Link } from '@inertiajs/react';
 import 'swiper/css';
@@ -11,8 +12,6 @@ interface BannerProps {
 }
 
 const Banner = ({ banners }: BannerProps) => {
-    const BASE_URL = import.meta.env.VITE_API_STORAGE_URL;
-
     if (banners.length === 0) {
         return (
             <section className="text-center">
@@ -35,7 +34,7 @@ const Banner = ({ banners }: BannerProps) => {
                 {banners.map((banner) => (
                     <SwiperSlide>
                         <Link href={banner.url}>
-                            <img src={`${BASE_URL}/${banner.image}`} alt="" />
+                            <img src={`${STORAGE_URL}/${banner.image}`} alt="" />
                         </Link>
                     </SwiperSlide>
                 ))}

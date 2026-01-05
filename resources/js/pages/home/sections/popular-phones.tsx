@@ -1,5 +1,34 @@
-const PopularPhones = () => {
-    return <div>PopularPhones</div>;
+import ProductCard from '@/components/cards/product-card';
+import { show } from '@/routes/categories';
+import { detail } from '@/routes/phones';
+import { Phone } from '@/types';
+
+interface PopularPhonesProps {
+    popularPhones: Phone[];
+}
+
+const PopularPhones = ({ popularPhones }: PopularPhonesProps) => {
+    if (popularPhones.length === 0) {
+        return (
+            <section className="mt-2">
+                <h1 className="section-title">Produk Populer</h1>
+                <div className="my-4 text-center">
+                    <p>Tidak ada data produk populer</p>
+                </div>
+            </section>
+        );
+    }
+
+    return (
+        <section className="mt-2 border-b border-gray-300">
+            <h1 className="section-title">Produk Populer</h1>
+            <div className="mt-4 grid grid-cols-3 gap-3">
+                {popularPhones.map((data) => (
+                    <ProductCard key={data.id} data={data} brandLink={show(data.brand.slug).url} productLink={detail(data.slug).url} />
+                ))}
+            </div>
+        </section>
+    );
 };
 
 export default PopularPhones;
