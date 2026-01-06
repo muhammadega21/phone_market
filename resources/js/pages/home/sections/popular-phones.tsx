@@ -3,11 +3,7 @@ import { show } from '@/routes/categories';
 import { detail } from '@/routes/phones';
 import { Phone } from '@/types';
 
-interface PopularPhonesProps {
-    popularPhones: Phone[];
-}
-
-const PopularPhones = ({ popularPhones }: PopularPhonesProps) => {
+const PopularPhones = ({ popularPhones }: { popularPhones: Phone[] }) => {
     if (popularPhones.length === 0) {
         return (
             <section className="mt-2">

@@ -3,11 +3,7 @@ import { show } from '@/routes/brands';
 import { detail } from '@/routes/phones';
 import { Phone } from '@/types';
 
-interface FeaturedPhonesProps {
-    featuredPhones: Phone[];
-}
-
-const FeaturedPhones = ({ featuredPhones }: FeaturedPhonesProps) => {
+const FeaturedPhones = ({ featuredPhones }: { featuredPhones: Phone[] }) => {
     if (featuredPhones.length === 0) {
         return (
             <section className="mt-2">

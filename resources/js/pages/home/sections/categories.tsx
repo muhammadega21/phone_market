@@ -1,13 +1,9 @@
 import { STORAGE_URL } from '@/config/env';
 import { show } from '@/routes/categories';
-import { Category as CategoryType } from '@/types';
+import { Category } from '@/types';
 import { Link } from '@inertiajs/react';
 
-interface CategoryProps {
-    categories: CategoryType[];
-}
-
-const Categories = ({ categories }: CategoryProps) => {
+const Categories = ({ categories }: { categories: Category[] }) => {
     return (
         <section className="mt-2">
             <h1 className="section-title">Kategori</h1>

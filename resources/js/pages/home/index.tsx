@@ -1,6 +1,6 @@
 import BaseLayout from '@/layouts/base-layout';
 import { Banner as BannerType, Category, Phone } from '@/types';
-import Banner from './sections/banner';
+import Banners from './sections/banners';
 import Categories from './sections/categories';
 import FeaturedPhones from './sections/featured-phones';
 import PopularPhones from './sections/popular-phones';
@@ -15,7 +15,7 @@ interface HomeProps {
 const Home = ({ banners, categories, featuredPhones, popularPhones }: HomeProps) => {
     return (
         <BaseLayout>
-            <Banner banners={banners} />
+            <Banners banners={banners} />
             <Categories categories={categories} />
             <FeaturedPhones featuredPhones={featuredPhones} />
             <PopularPhones popularPhones={popularPhones} />

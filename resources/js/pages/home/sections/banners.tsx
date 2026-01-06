@@ -1,5 +1,5 @@
 import { STORAGE_URL } from '@/config/env';
-import { Banner as BannerType } from '@/types';
+import { Banner } from '@/types';
 import { Link } from '@inertiajs/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -7,11 +7,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './banner.css';
 
-interface BannerProps {
-    banners: BannerType[];
-}
-
-const Banner = ({ banners }: BannerProps) => {
+const Banners = ({ banners }: { banners: Banner[] }) => {
     if (banners.length === 0) {
         return (
             <section className="text-center">
@@ -43,4 +39,4 @@ const Banner = ({ banners }: BannerProps) => {
     );
 };
 
-export default Banner;
+export default Banners;
